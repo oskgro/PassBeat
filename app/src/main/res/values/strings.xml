@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">PassBeat</string>
+    <string name="instructionSetup">Tap the button to set your secret rhythm.</string>
+    <string name="aboutTitle">About PassBeat</string>
+    <string name="aboutSection1Title">What is PassBeat?</string>
+    <string name="aboutSection1Text">PassBeat is a research tool to gather data on the retentiveness of rhythm-based passwords in comparison to text-based passwords. In other words, it helps researchers to find out whether rhythm-based passwords are easier to remember than conventional passwords.</string>
+    <string name="aboutSection2Title">Why should I use PassBeat?</string>
+    <string name="aboutSection2Text">By using PassBeat you participate in a field study and help researchers collecting data which will be used to gain new knowledge on password retentiveness. Without your help, this study would not be possible, so, thank you!</string>
+    <string name="aboutSection3Title">What data does PassBeat gather?</string>
+    <string name="aboutSection3Text">PassBeat will only transmit your login success ratio and the time of your login. Your password is stored locally on the device and will not be transmitted.</string>
+    <string name="aboutMoreInfo">For more information check out the <a href="https://oskgro.github.io/">PassBeat website</a>.</string> <!-- TODO make link clickable -->
 </resources>
