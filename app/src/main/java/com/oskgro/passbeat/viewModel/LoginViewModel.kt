@@ -11,9 +11,8 @@ class LoginViewModel: ViewModel() {
     private val _navigateToResultFragment = MutableLiveData<Event<Unit>>()
     val navigateToResultFragment: LiveData<Event<Unit>> = _navigateToResultFragment
 
-/*
     fun goToResultFragment() {
         _navigateToResultFragment.value = Event(Unit)
     }
-*/
+
 }
