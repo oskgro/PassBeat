@@ -36,15 +36,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
+            android:id="@+id/yellow_button"
             android:layout_width="180dp"
             android:layout_height="180dp"
             app:layout_constraintTop_toBottomOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/touch_app_ic"
             android:background="@drawable/yellow_button"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="@{() -> viewmodel.yellowButtonPressed()}"
+            android:onClick="@{() -> viewmodel.goToResultFragment}"
             android:orientation="vertical">
 
             <ImageView
@@ -52,10 +54,38 @@
                 android:layout_height="0dp"
                 android:src="@drawable/ic_sound_wave"
                 android:layout_margin="36dp"
-                android:layout_weight="1"/>
-
+                android:layout_weight="1"
+                android:clickable="false"
+                android:focusable="false"
+                android:contentDescription="@string/sound_wave" />
 
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/touch_app_ic"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/yellow_button"
+            app:layout_constraintBottom_toTopOf="@id/forgotten_rhythm"
+            android:src="@drawable/ic_touch_app"
+            android:contentDescription="@string/touch_icon"/>
+        
+        <TextView
+            android:id="@+id/forgotten_rhythm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgotten_rhythm"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/touch_app_ic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> viewmodel.forgottenRhythm}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
