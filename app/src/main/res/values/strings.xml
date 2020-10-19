@@ -3,9 +3,4 @@
     
     <!-- Login Fragment -->
     <string name="login_instruction">Tap your secret rhythm to log in</string>
-    <string name="forgotten_rhythm"><u>Forgotten your rhythm?</u></string>
-
-    <!-- Content Descriptions -->
-    <string name="sound_wave">Sound wave</string>
-    <string name="touch_icon">Touch icon</string>
 </resources>
