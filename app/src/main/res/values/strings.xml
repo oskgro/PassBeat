@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">PassBeat</string>
+    
+    <!-- Login Fragment -->
+    <string name="login_instruction">Tap your secret rhythm to log in</string>
 </resources>
