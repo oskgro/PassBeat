@@ -29,7 +29,7 @@
             android:gravity="center"
             android:text="@string/login_instruction"
             android:textColor="#000000"
-            android:textSize="40sp"
+            android:textSize="36sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
             android:background="@drawable/yellow_button"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="@{() -> viewmodel.goToResultFragment}"
+            android:onClick="@{() -> viewmodel.goToResultFragment()}"
             android:orientation="vertical">
 
             <ImageView
@@ -71,7 +71,7 @@
             app:layout_constraintBottom_toTopOf="@id/forgotten_rhythm"
             android:src="@drawable/ic_touch_app"
             android:contentDescription="@string/touch_icon"/>
-        
+
         <TextView
             android:id="@+id/forgotten_rhythm"
             android:layout_width="wrap_content"
@@ -85,7 +85,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="@{() -> viewmodel.forgottenRhythm}"/>
+            android:onClick="@{() -> viewmodel.forgottenRhythm()}"/>
+        
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
