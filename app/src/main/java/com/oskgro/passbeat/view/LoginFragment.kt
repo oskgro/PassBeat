@@ -134,17 +134,19 @@ class LoginFragment: Fragment() {
         // get rhythm codes to same length
         val lenInput = userInput.getRhythmCode().size
         val lenPswd = password.getRhythmCode().size
-        val pswdCopy = password
-        if(lenInput < lenPswd){
-            userInput.extendRhythmCode(lenPswd - lenInput)
-        } else if(lenInput > lenPswd){
-            pswdCopy.extendRhythmCode(lenInput - lenPswd)
+
+        if(lenInput != lenPswd){
+            return false
         }
 
         //calculate mean squared error (=distance between vectors)
-        var diff = userInput.getRhythmCode().subtract(pswdCopy.getRhythmCode())
-        diff = diff.map { i: Long -> i * i }.toSet()
+        var diff = userInput.getRhythmCode()
+        for (i in 0 until lenInput){
+            var temp = diff.get(i)- password.getRhythmCode().get(i)
+            diff.set(i,temp*temp)
+        }
         val error = sqrt(diff.sum().toDouble()).toInt()
+        Log.i("TEST!!!!","error: "+error)
 
         return error < threshold
     }
