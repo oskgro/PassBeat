@@ -28,4 +28,10 @@ class RhythmEncoder {
         return str
     }
 
+    // extend rhythm code with zeros
+    fun extendRhythmCode(length: Int){
+        val extention = LongArray(length){0}.asList()
+        rhythmCode.addAll(extention)
+    }
+
 }

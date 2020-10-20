@@ -18,6 +18,7 @@ import com.oskgro.passbeat.databinding.FragmentLoginBinding
 import com.oskgro.passbeat.model.RhythmEncoder
 import com.oskgro.passbeat.util.EventObserver
 import com.oskgro.passbeat.viewModel.LoginViewModel
+import kotlin.math.sqrt
 
 class LoginFragment: Fragment() {
 
@@ -128,4 +129,23 @@ class LoginFragment: Fragment() {
         })
     }
 
+    // returns true if password is correct
+    private fun evaluateRhythm(userInput: RhythmEncoder, password: RhythmEncoder, threshold: Int): Boolean{
+        // get rhythm codes to same length
+        val lenInput = userInput.getRhythmCode().size
+        val lenPswd = password.getRhythmCode().size
+        val pswdCopy = password
+        if(lenInput < lenPswd){
+            userInput.extendRhythmCode(lenPswd - lenInput)
+        } else if(lenInput > lenPswd){
+            pswdCopy.extendRhythmCode(lenInput - lenPswd)
+        }
+
+        //calculate mean squared error (=distance between vectors)
+        var diff = userInput.getRhythmCode().subtract(pswdCopy.getRhythmCode())
+        diff = diff.map { i: Long -> i * i }.toSet()
+        val error = sqrt(diff.sum().toDouble()).toInt()
+
+        return error < threshold
+    }
 }
