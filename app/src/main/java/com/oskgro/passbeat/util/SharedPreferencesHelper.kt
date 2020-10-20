@@ -37,4 +37,8 @@ class SharedPreferencesHelper(private val preferences: SharedPreferences) {
         return RhythmEncoder()
     }
 
+    fun clearSharedPreferences() {
+        preferences.edit().clear().apply()
+    }
+
 }

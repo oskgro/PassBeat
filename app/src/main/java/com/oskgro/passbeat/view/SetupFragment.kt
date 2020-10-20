@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.oskgro.passbeat.R
 import com.oskgro.passbeat.databinding.FragmentSetupBinding
 import com.oskgro.passbeat.model.RhythmEncoder
@@ -49,7 +50,6 @@ class SetupFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setClickListeners()
     }
 
@@ -117,6 +117,7 @@ class SetupFragment: Fragment() {
             }
             Log.i("FINAL! ",""+finalRhythmEncoder.display())
             InjectorUtils.injectSharedPreferences(requireContext()).saveRhythmEncoding(finalRhythmEncoder)
+            findNavController().popBackStack()
         }
         else {
             Toast.makeText(context, "Error! The rhythms were of different lengths!", Toast.LENGTH_LONG).show()
