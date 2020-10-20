@@ -43,6 +43,20 @@ class LoginFragment: Fragment() {
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResultFragment())
             }
         })
+
+        // observer for button to navigation to setup fragment
+        viewModel.navigateToSetupFragment.observe(viewLifecycleOwner, EventObserver {
+            if(findNavController().currentDestination?.id == R.id.loginFragment) {
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSetupFragment())
+            }
+        })
+
+        // observer for button to navigation to about fragment
+        viewModel.navigateToAboutFragment.observe(viewLifecycleOwner, EventObserver {
+            if(findNavController().currentDestination?.id == R.id.loginFragment) {
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToAboutFragment())
+            }
+        })
     }
 
 }

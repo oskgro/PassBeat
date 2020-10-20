@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -90,6 +91,29 @@
             android:onClick="@{() -> viewmodel.forgottenRhythm()}"/>
         
 
+
+        <Button
+            android:id="@+id/setup_test_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="go to setup fragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/test_button"
+            android:textAllCaps="false"
+            android:onClick="@{() -> viewmodel.goToSetupFragment()}"/>
+
+        <Button
+            android:id="@+id/about_test_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="go to about fragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setup_test_button"
+            android:textAllCaps="false"
+            android:onClick="@{() -> viewmodel.goToAboutFragment()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
