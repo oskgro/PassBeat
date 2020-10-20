@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F8F8F8">
+        android:background="@color/backgroundColor">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -69,26 +69,65 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/yellow_button"
-            app:layout_constraintBottom_toTopOf="@id/forgotten_rhythm"
+            app:layout_constraintBottom_toTopOf="@id/bottom_container"
             android:layout_marginStart="9dp"
             android:layout_marginLeft="9dp"
             android:src="@drawable/ic_touch_app"
             android:contentDescription="@string/touch_icon"/>
 
-        <TextView
-            android:id="@+id/forgotten_rhythm"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/forgotten_rhythm"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/touch_app_ic"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="@{() -> viewmodel.forgottenRhythm()}"/>
+            app:layout_constraintTop_toBottomOf="@id/touch_app_ic"
+            android:layout_margin="20dp">
+
+            <ImageView
+                android:id="@+id/about_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_about"
+                app:layout_constraintEnd_toStartOf="@id/forgotten_rhythm"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:contentDescription="@string/about_icon"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{() -> viewmodel.goToAboutFragment()}"/>
+
+            <TextView
+                android:id="@+id/forgotten_rhythm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgotten_rhythm"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/about_icon"
+                app:layout_constraintEnd_toStartOf="@id/mute_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{() -> viewmodel.forgottenRhythm()}"/>
+
+            <ImageView
+                android:id="@+id/mute_icon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@{viewmodel.appIsMuted ? @drawable/ic_turn_sound_on : @drawable/ic_turn_sound_off}"
+                app:layout_constraintStart_toEndOf="@id/forgotten_rhythm"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:src="@drawable/ic_turn_sound_off"
+                android:contentDescription="@string/mute_icon"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

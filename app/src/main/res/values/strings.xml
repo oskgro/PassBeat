@@ -8,7 +8,13 @@
     <!-- Content Descriptions -->
     <string name="sound_wave">Sound wave</string>
     <string name="touch_icon">Touch icon</string>
+    <string name="about_icon">About this app</string>
+    <string name="mute_icon">Mute or unmute</string>
+
+    <!-- Setup Fragment -->
     <string name="instructionSetup">Tap the button to set your secret rhythm.</string>
+
+    <!-- About Fragment -->
     <string name="aboutTitle">About PassBeat</string>
     <string name="aboutSection1Title">What is PassBeat?</string>
     <string name="aboutSection1Text">PassBeat is a research tool to gather data on the retentiveness of rhythm-based passwords in comparison to text-based passwords. In other words, it helps researchers to find out whether rhythm-based passwords are easier to remember than conventional passwords.</string>

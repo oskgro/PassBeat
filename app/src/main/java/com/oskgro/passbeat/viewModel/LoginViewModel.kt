@@ -17,6 +17,9 @@ class LoginViewModel: ViewModel() {
     private val _navigateToAboutFragment = MutableLiveData<Event<Unit>>()
     val navigateToAboutFragment: LiveData<Event<Unit>> = _navigateToAboutFragment
 
+    private val _appIsMuted = MutableLiveData(false)
+    val appIsMuted: LiveData<Boolean> = _appIsMuted
+
     fun goToResultFragment() {
         _navigateToResultFragment.value = Event(Unit)
     }
