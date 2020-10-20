@@ -47,7 +47,9 @@
             android:background="@drawable/yellow_button"
             android:clickable="true"
             android:focusable="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:elevation="8dp"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -63,16 +65,14 @@
 
         <ImageView
             android:id="@+id/touch_app_ic"
-            android:layout_width="90dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/yellow_button"
             app:layout_constraintBottom_toTopOf="@id/bottom_container"
-            android:layout_marginStart="9dp"
-            android:layout_marginLeft="9dp"
-            android:src="@drawable/ic_touch_app"
-            android:contentDescription="@string/touch_icon"/>
+            android:contentDescription="@string/touch_icon"
+            android:src="@drawable/ic_touch_app"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottom_container"
@@ -103,7 +103,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/forgotten_rhythm"
                 android:textColor="#000000"
-                android:textSize="16sp"
+                android:textSize="14sp"
+                android:fontFamily="@font/nunito_bold"
                 app:layout_constraintStart_toEndOf="@id/about_icon"
                 app:layout_constraintEnd_toStartOf="@id/mute_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
