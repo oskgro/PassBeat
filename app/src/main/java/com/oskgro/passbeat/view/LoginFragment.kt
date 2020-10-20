@@ -31,6 +31,8 @@ class LoginFragment: Fragment() {
     var rhythmEncoder: RhythmEncoder = RhythmEncoder()
     var stillListeningToTap: Boolean = true
 
+    var testPswd: RhythmEncoder = RhythmEncoder() //TODO remove!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -50,6 +52,11 @@ class LoginFragment: Fragment() {
 
         setClickListeners()
         setupObservers()
+
+        //TODO remove!
+        if(testPswd.getRhythmCode().isEmpty()){
+            testPswd.addSegment(85)
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -80,6 +87,7 @@ class LoginFragment: Fragment() {
                         if((timestampMillis + 2000) < System.currentTimeMillis()){
                             encodingState = 0
                             Log.i("TEST!!!!",""+rhythmEncoder.display())
+                            grantAccess(rhythmEncoder, testPswd)
                             rhythmEncoder.clear()
                         }
                     }, 2010)
@@ -136,6 +144,7 @@ class LoginFragment: Fragment() {
         val lenPswd = password.getRhythmCode().size
 
         if(lenInput != lenPswd){
+            Log.i("TEST!!!!", "invalid password lenght")
             return false
         }
 
@@ -149,5 +158,17 @@ class LoginFragment: Fragment() {
         Log.i("TEST!!!!","error: "+error)
 
         return error < threshold
+    }
+
+    private fun grantAccess(userInput: RhythmEncoder, password: RhythmEncoder){
+        var threshold = 150 //TODO change!
+        //Log.i("TEST!!!!", "password: "+password.display())
+        if (evaluateRhythm(userInput, password, threshold)){
+            if(findNavController().currentDestination?.id == R.id.loginFragment) {
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResultFragment())
+            }
+        } else{
+            Log.i("TEST!!!!", "access denied")
+        }
     }
 }
