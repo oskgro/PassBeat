@@ -48,8 +48,7 @@
             android:clickable="true"
             android:focusable="true"
             android:orientation="vertical"
-            android:elevation="8dp"
-            android:foreground="?attr/selectableItemBackgroundBorderless">
+            android:elevation="8dp">
 
             <ImageView
                 android:layout_width="match_parent"
