@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.oskgro.passbeat.R
 import com.oskgro.passbeat.databinding.FragmentSetupBinding
 import com.oskgro.passbeat.model.RhythmEncoder
+import com.oskgro.passbeat.util.InjectorUtils
 import com.oskgro.passbeat.viewModel.SetupViewModel
 
 class SetupFragment: Fragment() {
@@ -115,6 +116,7 @@ class SetupFragment: Fragment() {
                 finalRhythmEncoder.addSegment((sum / 5))
             }
             Log.i("FINAL! ",""+finalRhythmEncoder.display())
+            InjectorUtils.injectSharedPreferences(requireContext()).saveRhythmEncoding(finalRhythmEncoder)
         }
         else {
             Toast.makeText(context, "Error! The rhythms were of different lengths!", Toast.LENGTH_LONG).show()

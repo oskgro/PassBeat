@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,7 @@ import com.oskgro.passbeat.R
 import com.oskgro.passbeat.databinding.FragmentLoginBinding
 import com.oskgro.passbeat.model.RhythmEncoder
 import com.oskgro.passbeat.util.EventObserver
+import com.oskgro.passbeat.util.InjectorUtils
 import com.oskgro.passbeat.viewModel.LoginViewModel
 import kotlin.math.sqrt
 
@@ -116,8 +118,13 @@ class LoginFragment: Fragment() {
 
         // observer for button to navigation to setup fragment
         viewModel.navigateToSetupFragment.observe(viewLifecycleOwner, EventObserver {
-            if(findNavController().currentDestination?.id == R.id.loginFragment) {
-                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSetupFragment())
+            val str = InjectorUtils.injectSharedPreferences(requireContext()).loadRhythmEncoding().display()
+            Log.i("LOAD: ","testing: "+str)
+            if(str != "") Toast.makeText(context, "Rhythm already set up", Toast.LENGTH_SHORT).show()
+            else{
+                if(findNavController().currentDestination?.id == R.id.loginFragment) {
+                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSetupFragment())
+                }
             }
         })
 
