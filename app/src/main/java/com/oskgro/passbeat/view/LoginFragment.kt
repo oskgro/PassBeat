@@ -146,15 +146,24 @@ class LoginFragment: Fragment() {
             return false
         }
 
-        //calculate mean squared error (=distance between vectors)
-        var diff = userInput.getRhythmCode()
+        //calculate weighted mean squared error (= distance between vectors)
+        var diffTap: ArrayList<Long> = ArrayList()
+        var diffPause: ArrayList<Long> = ArrayList()
         for (i in 0 until lenInput){
-            var temp = diff.get(i)- password.getRhythmCode().get(i)
-            diff.set(i,temp*temp)
+            var temp = userInput.getRhythmCode().get(i) - password.getRhythmCode().get(i)
+            temp = temp * temp
+            if(i%2 == 0){
+                // tap
+                diffTap.add(temp)
+            } else{
+                //pause
+                diffPause.add(temp)
+            }
         }
-        val error = sqrt(diff.sum().toDouble()).toInt()
+        val errorTap = sqrt(diffTap.sum().toDouble())
+        val errorPause = sqrt(diffPause.sum().toDouble())
+        val weight = 0.55 // TODO change!
+        val error =(errorTap*weight + errorPause*(1-weight)).toInt()
         Log.i("TEST!!!!","error: "+error)
-
-        return error < threshold
     }
 }
