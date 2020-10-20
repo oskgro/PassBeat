@@ -43,4 +43,8 @@ class LoginViewModel: ViewModel() {
         _navigateToAboutFragment.value = Event(Unit)
     }
 
+    fun muteButtonClicked() {
+        goToSetupFragment()
+    }
+
 }

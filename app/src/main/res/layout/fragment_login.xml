@@ -122,6 +122,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 tools:src="@drawable/ic_turn_sound_off"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{() -> viewmodel.muteButtonClicked()}"
                 android:contentDescription="@string/mute_icon"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

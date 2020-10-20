@@ -8,16 +8,20 @@ class RhythmEncoder {
         rhythmCode.add(length)
     }
 
+    fun getCode(index: Int): Long {
+        return rhythmCode.get(index)
+    }
+
     fun getRhythmCode(): ArrayList<Long> {
         return rhythmCode
     }
 
-    fun setRhythmCode(code: ArrayList<Long>) {
-        rhythmCode = code
-    }
-
     fun clear() {
         rhythmCode = arrayListOf()
+    }
+
+    fun size(): Int {
+        return rhythmCode.size
     }
 
     fun display(): String {
