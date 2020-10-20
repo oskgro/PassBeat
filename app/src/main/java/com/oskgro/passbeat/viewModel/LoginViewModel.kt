@@ -1,6 +1,7 @@
 package com.oskgro.passbeat.viewModel
 
 import android.app.usage.UsageEvents
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +20,10 @@ class LoginViewModel: ViewModel() {
 
     private val _appIsMuted = MutableLiveData(false)
     val appIsMuted: LiveData<Boolean> = _appIsMuted
+
+    fun mainButtonTapped(view: View) {
+        view.animate().scaleX(2f).scaleY(2f).setDuration(1000L).start()
+    }
 
     fun goToResultFragment() {
         _navigateToResultFragment.value = Event(Unit)
