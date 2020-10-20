@@ -169,6 +169,7 @@ class LoginFragment: Fragment() {
             }
         } else{
             Log.i("TEST!!!!", "access denied")
+            Toast.makeText(context, "Incorrect rhythm entered", Toast.LENGTH_SHORT).show()
         }
     }
 }
