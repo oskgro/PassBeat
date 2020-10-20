@@ -49,7 +49,6 @@ class LoginFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        63, 307, 61, 185, 46, 83, 59, 335, 69, 680, 67, 327, 64,
         //InjectorUtils.injectSharedPreferences(requireContext()).clearSharedPreferences()
         setClickListeners()
         setupObservers()
