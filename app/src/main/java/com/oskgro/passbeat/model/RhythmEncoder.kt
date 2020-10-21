@@ -1,5 +1,9 @@
 package com.oskgro.passbeat.model
 
+import android.content.Context
+import android.widget.Toast
+import kotlin.coroutines.coroutineContext
+
 class RhythmEncoder {
 
     private var rhythmCode = arrayListOf<Long>()
@@ -18,6 +22,10 @@ class RhythmEncoder {
 
     fun clear() {
         rhythmCode = arrayListOf()
+    }
+
+    fun isEmpty(): Boolean {
+        return rhythmCode.isEmpty()
     }
 
     fun size(): Int {

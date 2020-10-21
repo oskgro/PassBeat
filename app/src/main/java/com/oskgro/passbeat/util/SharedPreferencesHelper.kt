@@ -1,7 +1,9 @@
 package com.oskgro.passbeat.util
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import android.widget.Toast
 import com.oskgro.passbeat.model.RhythmEncoder
 
 class SharedPreferencesHelper(private val preferences: SharedPreferences) {
@@ -37,7 +39,8 @@ class SharedPreferencesHelper(private val preferences: SharedPreferences) {
         return RhythmEncoder()
     }
 
-    fun clearSharedPreferences() {
+    fun clearSharedPreferences(context: Context) {
+        Toast.makeText(context, "Shared preferences have been cleared", Toast.LENGTH_SHORT).show()
         preferences.edit().clear().apply()
     }
 
