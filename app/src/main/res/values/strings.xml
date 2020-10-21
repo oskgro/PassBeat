@@ -13,6 +13,7 @@
 
     <!-- Setup Fragment -->
     <string name="instructionSetup">Tap the button to set your secret rhythm.</string>
+    <string name="instructionSetup2">Repeat your rhythm five times.</string>
 
     <!-- Result Fragment -->
     <string name="welcome_to_passbeat">Welcome to the PassBeat-player</string>
