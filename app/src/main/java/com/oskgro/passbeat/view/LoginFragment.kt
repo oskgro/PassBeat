@@ -64,7 +64,7 @@ class LoginFragment : Fragment() {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 if (event?.action == MotionEvent.ACTION_DOWN) {
                     animateBigger(v)
-                    val pattern: LongArray = longArrayOf(0, 200, 0)
+                    val pattern: LongArray = longArrayOf(0, 1000, 0)
                     if(!viewModel.appIsMuted.value!!) haptic.vibrate(pattern, 0)
                     if (encodingState == 0) {
                         if(!rhythmIsSetUp) {
@@ -166,7 +166,11 @@ class LoginFragment : Fragment() {
         for (i in 0 until lenInput) {
             val temp = userInput.getRhythmCode().get(i) - password.getRhythmCode().get(i)
             val tempPerc = abs(temp) / password.getRhythmCode().get(i).toDouble()
-            diff.add(tempPerc * tempPerc)
+            var sqrPerc = tempPerc * tempPerc
+            if(sqrPerc > 0.5) {
+                sqrPerc = 1000.0
+            }
+            diff.add(sqrPerc)
         }
 
         meanPercentageError += (diff.sum() / diff.size.toDouble())

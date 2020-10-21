@@ -2,20 +2,57 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.oskgro.passbeat.viewModel.ResultViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient">
 
         <TextView
-            android:id="@+id/test_text"
+            android:id="@+id/title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Result Fragment"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/player"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/nunito_bold"
+            android:text="@string/welcome_to_passbeat"
+            android:textColor="@color/textColor"
+            android:textSize="36sp"
+            android:gravity="center"
+            android:padding="20dp"/>
+
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:videoId="u3ltZmI5LQw"
+            app:autoPlay="true"
+            app:showFullScreenButton="false"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/player"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textColor="#000000"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/nunito_bold"
+            android:text="@string/enjoy"
+            android:padding="30dp"
+            android:textColor="@color/textColor"
+            android:textSize="24sp"
+            android:gravity="center"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

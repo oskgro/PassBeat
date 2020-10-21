@@ -14,6 +14,10 @@
     <!-- Setup Fragment -->
     <string name="instructionSetup">Tap the button to set your secret rhythm.</string>
 
+    <!-- Result Fragment -->
+    <string name="welcome_to_passbeat">Welcome to the PassBeat-player</string>
+    <string name="enjoy">Enjoy some <u>Rhythm</u> Of The Night by <u>Corona</u></string>
+
     <!-- About Fragment -->
     <string name="aboutTitle">About PassBeat</string>
     <string name="aboutSection1Title">What is PassBeat?</string>

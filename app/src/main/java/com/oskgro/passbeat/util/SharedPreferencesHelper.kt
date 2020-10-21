@@ -12,17 +12,13 @@ class SharedPreferencesHelper(private val preferences: SharedPreferences) {
     private val encodedRhythm = "rhythm"
 
     fun saveRhythmEncoding(code: RhythmEncoder) {
-        val saved = preferences.getString(encodedRhythm, "")
-        if(saved == "") {
-            var str = ""
-            for(i in 0 until code.size()) {
-                str = str + code.getCode(i) + ","
-            }
-            str = str.substring(0, str.length - 1)
-            Log.i("STRING! ", ""+str)
-            preferences.edit().putString(encodedRhythm, str).apply()
+        var str = ""
+        for(i in 0 until code.size()) {
+            str = str + code.getCode(i) + ","
         }
-
+        str = str.substring(0, str.length - 1)
+        Log.i("STRING! ", ""+str)
+        preferences.edit().putString(encodedRhythm, str).apply()
     }
 
     fun loadRhythmEncoding(): RhythmEncoder {

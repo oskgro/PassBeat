@@ -24,7 +24,7 @@ class ResultFragment: Fragment() {
         binding = DataBindingUtil.inflate(inflater, contentView, container, false)
         val view = binding.root
         viewModel = ViewModelProvider(this).get(ResultViewModel::class.java)
-        //binding.viewmodel = viewModel
+        binding.viewmodel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         return view
     }

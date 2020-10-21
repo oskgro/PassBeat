@@ -30,7 +30,7 @@ class LoginViewModel: ViewModel() {
     }
 
     fun forgottenRhythm() {
-        _navigateToResultFragment.value = Event(Unit)
+        _navigateToSetupFragment.value = Event(Unit)
     }
 
     // navigation to setup fragment for testing
