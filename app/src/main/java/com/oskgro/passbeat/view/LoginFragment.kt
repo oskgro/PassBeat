@@ -98,6 +98,7 @@ class LoginFragment : Fragment() {
                             ) {
                                 Toast.makeText(context, "Access granted!", Toast.LENGTH_SHORT).show()
                                 rhythmEncoder.clear()
+                                navToResult()
                             } else {
                                 Toast.makeText(context, "Access denied!", Toast.LENGTH_SHORT).show()
                                 rhythmEncoder.clear()
