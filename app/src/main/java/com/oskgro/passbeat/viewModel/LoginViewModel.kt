@@ -19,7 +19,7 @@ class LoginViewModel: ViewModel() {
     val navigateToAboutFragment: LiveData<Event<Unit>> = _navigateToAboutFragment
 
     private val _appIsMuted = MutableLiveData(false)
-    val appIsMuted: LiveData<Boolean> = _appIsMuted
+    val appIsMuted: MutableLiveData<Boolean> = _appIsMuted
 
     fun mainButtonTapped(view: View) {
         view.animate().scaleX(2f).scaleY(2f).setDuration(1000L).start()
@@ -44,7 +44,7 @@ class LoginViewModel: ViewModel() {
     }
 
     fun muteButtonClicked() {
-        goToSetupFragment()
+        appIsMuted.value = !appIsMuted.value!!
     }
 
 }

@@ -1,9 +1,8 @@
 package com.oskgro.passbeat.view
 
 import android.annotation.SuppressLint
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.content.Context
+import android.os.*
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -33,6 +32,7 @@ class LoginFragment : Fragment() {
     var timestampMillis: Long = 0
     var rhythmEncoder: RhythmEncoder = RhythmEncoder()
     var rhythmIsSetUp: Boolean = false
+    lateinit var haptic: Vibrator
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,7 +47,6 @@ class LoginFragment : Fragment() {
         return view
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //InjectorUtils.injectSharedPreferences(requireContext()).clearSharedPreferences(requireContext())
@@ -56,6 +55,7 @@ class LoginFragment : Fragment() {
         if(!InjectorUtils.injectSharedPreferences(requireContext()).loadRhythmEncoding().isEmpty()) {
             rhythmIsSetUp = true
         }
+        haptic = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -64,8 +64,11 @@ class LoginFragment : Fragment() {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 if (event?.action == MotionEvent.ACTION_DOWN) {
                     animateBigger(v)
+                    val pattern: LongArray = longArrayOf(0, 200, 0)
+                    if(!viewModel.appIsMuted.value!!) haptic.vibrate(pattern, 0)
                     if (encodingState == 0) {
                         if(!rhythmIsSetUp) {
+                            haptic.cancel()
                             navToSetup()
                         }
                         else {
@@ -80,7 +83,7 @@ class LoginFragment : Fragment() {
                     return true
                 } else if (event?.action == MotionEvent.ACTION_UP) {
                     animateToNormal(v)
-
+                    haptic.cancel()
                     val deltaTime = System.currentTimeMillis() - timestampMillis
                     rhythmEncoder.addSegment(deltaTime)
                     timestampMillis = System.currentTimeMillis()
@@ -184,7 +187,7 @@ class LoginFragment : Fragment() {
         v?.animate()!!
             .scaleY(1.1f)
             .scaleX(1.1f)
-            .setDuration(50L)
+            .setDuration(20L)
             .start()
     }
 

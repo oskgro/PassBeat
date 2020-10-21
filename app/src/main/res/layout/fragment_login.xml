@@ -124,8 +124,8 @@
                 tools:src="@drawable/ic_turn_sound_off"
                 android:clickable="true"
                 android:focusable="true"
-                android:onClick="@{() -> viewmodel.muteButtonClicked()}"
-                android:contentDescription="@string/mute_icon"/>
+                android:contentDescription="@string/mute_icon"
+                android:onClick="@{() -> viewmodel.muteButtonClicked()}"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
