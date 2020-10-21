@@ -15,11 +15,12 @@
     - Copy the APK file to:  
         on Windows:
 
-            C:\Program Files (x86)\Android\sdk\platform-tools (on Windows)
+            C:\Program Files (x86)\Android\sdk\platform-tools
     
-	on Mac/Linux:
+    	on Mac/Linux:
         
-            /Users/your-user-name/Library/Android/sdk/platform-tools (on Mac/Linux)
+            /Users/your-user-name/Library/Android/sdk/platform-tools
+	    
     - Open the command line and type:  
     	on Windows:
 
