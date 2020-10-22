@@ -1,6 +1,3 @@
-# TODO: put APK file in repository!!
-
-
 ## Instalation guide
 
 #### Android Emulator
@@ -47,4 +44,4 @@
 	- Toggle the "Allow from this source" switch from off to on.  
 - An instalation pop-up will open. Tap "install" to install the PassBeat app.
 
-For more information about PassBeat check out the [PassBeat website](https://oskgro.github.io/)
+For more information about PassBeat check out the [PassBeat website](https://oskgro.github.io/).
