@@ -12,7 +12,7 @@
     <string name="mute_icon">Mute or unmute</string>
 
     <!-- Setup Fragment -->
-    <string name="instructionSetup">Tap the button to set your secret rhythm.</string>
+    <string name="instructionSetup">Tap the button to set your secret rhythm</string>
     <string name="instructionSetup2">Repeat your rhythm five times.</string>
 
     <!-- Result Fragment -->
